@@ -4,6 +4,7 @@
 <ul>
     <li>Python 3.10 or higher (tested with Python 3.10.0)</li>
     <li>Java Development Kit (JDK) 17</li>
+    <li>ffmpeg 9.0.1 or above</li>
 </ul>
 <h2 align="center">Installation</h2>
 <p>1. Download the source code from the repository.</p>

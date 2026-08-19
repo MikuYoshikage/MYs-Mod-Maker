@@ -159,9 +159,6 @@ def move_records(mod: Mod) -> List[str]:
                 capture_output=True,
                 text=True
             )
-
-            if result.returncode != 0:
-                failed.append(track.id)
         except:
             try:
                 result = subprocess.run(

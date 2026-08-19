@@ -159,8 +159,8 @@ def move_records(mod: Mod) -> List[str]:
                 capture_output=True,
                 text=True
             )
-        except:
-            try:
+
+            if result.returncode != 0:
                 result = subprocess.run(
                     [
                         "ffmpeg", "-y",
@@ -178,8 +178,8 @@ def move_records(mod: Mod) -> List[str]:
 
                 if result.returncode != 0:
                     failed.append(track.id)
-            except:
-                raise RuntimeError("ffmpeg is not installed or not found in PATH. Please install ffmpeg to process audio files.")
+        except:
+            raise RuntimeError("ffmpeg is not installed or not found in PATH. Please install ffmpeg to process audio files.")
 
     return failed
 

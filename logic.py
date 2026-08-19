@@ -166,7 +166,7 @@ def move_records(mod: Mod) -> List[str]:
                         "ffmpeg", "-y",
                         "-i", str(source_path),
                         "-vn",
-                        "-ac", "1",
+                        "-ac", "2",
                         "-ar", "44100",
                         "-c:a", "vorbis", "-strict", "-2",
                         "-q:a", "4",

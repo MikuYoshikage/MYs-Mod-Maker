@@ -28,9 +28,17 @@ source venv/bin/activate  # On macOS/Linux
 <pre><code>python cli.py
 </code></pre>
 <h2 align="center">Supported Versions</h2>
-<p>Currently, the program supports Minecraft forge 1.20.1.</p>
+<ul>
+    <li>- Forge 1.20.1</li>
+</ul>
+<p>(more coming soon)</p>
 <h2 align="center">Supported Platforms</h2>
-<p>The program is designed to work on Windows, macOS, and Linux, but tested primarily on Windows and Linux.</p>
+<ul>
+    <li>- Windows</li>
+    <li>- MacOS</li>
+    <li>- Linux</li>
+</ul>
+<p>(tested primarily on Windows and Linux)</p>
 <h2 align="center">Features</h2>
 <ul>
     <li>GUI and CLI modes for creating Minecraft mods</li>
@@ -40,19 +48,10 @@ source venv/bin/activate  # On macOS/Linux
 </ul>
 <h2 align="center">License</h2>
 <p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
-<h2 align="center">Future Plans</h2>
-<p>Here are some features that are planned for future releases:</p>
-<ul>
-    <li>Support for more Minecraft versions and mod loaders</li>
-    <li>Enhanced GUI with better user experience</li>
-    <li>Improved CLI with more options and customization</li>
-</ul>
 <h2 align="center">Contributing</h2>
 <p>Contributions are welcome! If you have suggestions or improvements, please submit a pull request or open an issue on the GitHub repository.</p>
 <h2 align="center">Telegram Channel</h2>
-<p>Join our <a href="https://t.me/mysprojs">Telegram channel</a> for updates and discussions.</p>
-<h2 align="center">Contact</h2>
-<p>If you have any questions or need support, please contact the author at <a href="mailto:mikuyoshikage@gmail.com">mikuyoshikage@gmail.com</a>.</p>
+<p>Join our <a href="">Telegram channel</a> for updates and discussions.</p>
 <h2 align="center">Author</h2>
 <p align="center">MikuYoshikage</p>
 <h3 align="center">Made with ❤️</h3>

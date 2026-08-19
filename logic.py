@@ -192,9 +192,15 @@ def build_mod() -> dict:
 
     global OS_NAME
 
-    gradlew = "./gradlew" if OS_NAME != "nt" else "gradlew.bat"
+    if OS_NAME != "nt":
+        gradlew = target_dir / "gradlew"
+        os.chmod(gradlew, 0o755)
+        command = [str(gradlew), "build"]
+    else:
+        command = ["gradlew.bat", "build"]
+
     result = subprocess.run(
-        [gradlew, "build"],
+        command,
         cwd=target_dir,
         capture_output=True,
         text=True,

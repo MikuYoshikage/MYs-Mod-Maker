@@ -8,9 +8,10 @@ import json
 import subprocess
 import re
 import os
+import platform
 
 PACKAGE_NAME = "com.miku.examplemod"
-OS_NAME = os.name
+OS_NAME = platform.system()
 
 class Track(BaseModel):
     id: str
@@ -161,8 +162,27 @@ def move_records(mod: Mod) -> List[str]:
 
             if result.returncode != 0:
                 failed.append(track.id)
-        except FileNotFoundError:
-            raise RuntimeError("ffmpeg is not installed or not found in PATH. Please install ffmpeg to process audio files.")
+        except:
+            try:
+                result = subprocess.run(
+                    [
+                        "ffmpeg", "-y",
+                        "-i", str(source_path),
+                        "-vn",
+                        "-ac", "1",
+                        "-ar", "44100",
+                        "-c:a", "vorbis", "-strict", "-2",
+                        "-q:a", "4",
+                        str(output_path)
+                    ],
+                    capture_output=True,
+                    text=True
+                )
+
+                if result.returncode != 0:
+                    failed.append(track.id)
+            except:
+                raise RuntimeError("ffmpeg is not installed or not found in PATH. Please install ffmpeg to process audio files.")
 
     return failed
 
@@ -192,7 +212,7 @@ def build_mod() -> dict:
 
     global OS_NAME
 
-    if OS_NAME != "nt":
+    if OS_NAME != "Windows":
         gradlew_path = target_dir / "gradlew"
         os.chmod(gradlew_path, 0o755)
         command = ["./gradlew", "build"]

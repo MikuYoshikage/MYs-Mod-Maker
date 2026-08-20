@@ -36,10 +36,10 @@ source venv/bin/activate  # On macOS/Linux
 <h2 align="center">Supported Platforms</h2>
 <ul>
     <li>- Windows</li>
-    <li>- MacOS</li>
+    <li>- macOS</li>
     <li>- Linux</li>
 </ul>
-<p>(tested primarily on Windows and Linux)</p>
+<p>(On macOS it works with a bug)</p>
 <h2 align="center">Features</h2>
 <ul>
     <li>GUI and CLI modes for creating Minecraft mods</li>

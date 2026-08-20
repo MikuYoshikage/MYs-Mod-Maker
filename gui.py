@@ -459,14 +459,16 @@ class GenerationWorker(QObject):
 
             self.statusChanged.emit("Moving sound files...")
 
-            failed_sounds = logic.move_records(self.mod)
+            failed_sounds, failed_reasons = logic.move_records(self.mod)
 
             if failed_sounds:
 
                 self.write_log(
                     "Failed to process sound files:\n"
-                    + "\n".join(failed_sounds)
+                    + "\n".join(f"Track ID: {track_id}, Reason: {reason}" for track_id, reason in zip(failed_sounds, failed_reasons))
                 )
+                
+                self.statusChanged.emit("Failed to process some sound files. See gui_things/log.txt")
 
                 logic.delete_failed_sounds(
                     failed_sounds,

@@ -140,6 +140,7 @@ def move_records(mod: Mod) -> List[str]:
     target_dir = Path("now_making") / "src/main/resources/assets" / mod.id / "sounds/records"
     target_dir.mkdir(parents=True, exist_ok=True)
     failed = []
+    falies = []
     for track in mod.tracks:
         source_path = Path(track.sound_path)
         output_path = target_dir / f"{track.id}.ogg"
@@ -178,10 +179,11 @@ def move_records(mod: Mod) -> List[str]:
 
                 if result.returncode != 0:
                     failed.append(track.id)
-        except:
+                    falies.append(result.stderr.strip().split("\n")[-3])
+        except FileNotFoundError:
             raise RuntimeError("ffmpeg is not installed or not found in PATH. Please install ffmpeg to process audio files.")
 
-    return failed
+    return failed, falies
 
 def move_textures(mod: Mod):
     target_dir = Path("now_making") / "src/main/resources/assets" / mod.id / "textures/item"

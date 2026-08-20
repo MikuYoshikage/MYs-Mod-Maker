@@ -126,9 +126,11 @@ def main():
     print("Filling Java files...")
     logic.fill_java_placeholders(mod)
     print("Moving sound files...")
-    failed_sounds = logic.move_records(mod)
+    failed_sounds, failed_reasons = logic.move_records(mod)
     if failed_sounds:
-        print(f"Failed to process the following sound files: {', '.join(failed_sounds)}")
+        print(f"Failed to process the following sound files:")
+        for track_id, reason in zip(failed_sounds, failed_reasons):
+            print(f"Track ID: {track_id}, Reason: {reason}")
         logic.delete_failed_sounds(failed_sounds, mod)
         if not mod.tracks:
             print("All tracks failed to process. Exiting.")

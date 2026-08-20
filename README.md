@@ -6,6 +6,7 @@
     <li>Java Development Kit (JDK) 17</li>
     <li>ffmpeg 9.0.1 or above</li>
 </ul>
+<p>Systems without libvorbis will have stereo sound which breaks the sound behavior in Minecraft</p>
 <h2 align="center">Installation</h2>
 <p>1. Download the source code from the repository.</p>
 <p>2. Go to the project folder.</p>
@@ -39,7 +40,6 @@ source venv/bin/activate  # On macOS/Linux
     <li>- macOS</li>
     <li>- Linux</li>
 </ul>
-<p>(On macOS it works with a bug)</p>
 <h2 align="center">Features</h2>
 <ul>
     <li>GUI and CLI modes for creating Minecraft mods</li>
